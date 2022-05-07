@@ -1,4 +1,6 @@
-package pt.ulusofona.cm.kotlin.observerobservable
+package pt.ulusofona.cm.kotlin.observerobservable.models
+
+import pt.ulusofona.cm.kotlin.observerobservable.interfaces.Registavel
 
 abstract class Leitor(var nome : String) : Registavel {
     private var registado : Boolean = false

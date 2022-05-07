@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable
+package pt.ulusofona.cm.kotlin.observerobservable.interfaces
 
 interface OnNumeroListener : Registavel {
 

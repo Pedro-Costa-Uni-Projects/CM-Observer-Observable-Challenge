@@ -1,4 +1,8 @@
-package pt.ulusofona.cm.kotlin.observerobservable
+package pt.ulusofona.cm.kotlin.observerobservable.models
+
+import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LeitorInexistenteException
+import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
+import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 
 class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableList<Noticia>) {
     private lateinit var listeners : MutableList<OnNoticiaListener>
