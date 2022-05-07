@@ -5,7 +5,7 @@ import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtin
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 
 class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableList<Noticia>) {
-    private lateinit var listeners : MutableList<OnNoticiaListener>
+    private var listeners : MutableList<OnNoticiaListener> = mutableListOf()
 
     fun adicionarLeitor(leitor : OnNoticiaListener) {
         if (listeners.size < maxLeitores) {
