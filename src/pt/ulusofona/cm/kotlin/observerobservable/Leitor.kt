@@ -1,8 +1,6 @@
-package pt.ulusofona.cm.kotlin.observerobservable.classes
+package pt.ulusofona.cm.kotlin.observerobservable
 
-import pt.ulusofona.cm.kotlin.observerobservable.interfaces.Registavel
-
-abstract class Leitor(var nome : String) : Registavel{
+abstract class Leitor(var nome : String) : Registavel {
     private var registado : Boolean = false
 
     override fun leitorAdicionadoComSucesso() {

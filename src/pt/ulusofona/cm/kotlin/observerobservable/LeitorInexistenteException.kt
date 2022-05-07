@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable.exceptions
+package pt.ulusofona.cm.kotlin.observerobservable
 
 class LeitorInexistenteException
     (message: String = "Este leitor não está registado!")

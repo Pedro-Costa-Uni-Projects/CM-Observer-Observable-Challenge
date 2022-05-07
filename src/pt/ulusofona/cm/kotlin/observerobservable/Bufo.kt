@@ -1,7 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable.classes
-
-import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
-import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
+package pt.ulusofona.cm.kotlin.observerobservable
 
 class Bufo(nome: String) : Leitor(nome), OnNumeroListener, OnNoticiaListener {
 

@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable.interfaces
+package pt.ulusofona.cm.kotlin.observerobservable
 
 interface Registavel {
 

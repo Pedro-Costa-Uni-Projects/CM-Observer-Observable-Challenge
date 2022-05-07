@@ -1,6 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable.classes
-
-import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
+package pt.ulusofona.cm.kotlin.observerobservable
 
 class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableList<Noticia>) {
     private lateinit var listeners : MutableList<OnNoticiaListener>
@@ -9,12 +7,18 @@ class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableLis
         if (listeners.size < maxLeitores) {
             leitor.leitorAdicionadoComSucesso()
             listeners.add(leitor)
+        } else {
+            throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona", maxLeitores)
         }
     }
 
     fun removerLeitor(leitor: OnNoticiaListener) {
-        leitor.leitorRemovidoComSucesso()
-        listeners.remove(leitor)
+        val done = listeners.remove(leitor)
+        if(!done) {
+            throw LeitorInexistenteException()
+        } else {
+            leitor.leitorRemovidoComSucesso()
+        }
     }
 
     private fun notificarLeitores() {
