@@ -4,8 +4,8 @@ import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LeitorInexistenteExc
 import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 
-class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableList<Noticia>) {
-    private var listeners : MutableList<OnNoticiaListener> = mutableListOf()
+class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableList<Noticia?>) {
+    private var listeners : MutableList<OnNoticiaListener?> = mutableListOf()
 
     fun adicionarLeitor(leitor : OnNoticiaListener) {
         if (listeners.size < maxLeitores) {
@@ -28,7 +28,9 @@ class CorreioDaLusofona(var maxLeitores : Int, private var noticias : MutableLis
     private fun notificarLeitores() {
         for (leitor in listeners) {
             for (noticia in noticias) {
-                leitor.onReceiveNoticia(noticia)
+                if (noticia != null) {
+                    leitor?.onReceiveNoticia(noticia)
+                }
             }
         }
     }

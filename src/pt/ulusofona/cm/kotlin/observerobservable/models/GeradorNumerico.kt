@@ -4,8 +4,8 @@ import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LeitorInexistenteExc
 import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
-class GeradorNumerico(var maxLeitores : Int, private var numeros : MutableList<Int>) {
-    private var listeners : MutableList<OnNumeroListener> = mutableListOf()
+class GeradorNumerico(var maxLeitores : Int, private var numeros : MutableList<Int?>) {
+    private var listeners : MutableList<OnNumeroListener?> = mutableListOf()
 
     fun adicionarLeitor(leitor : OnNumeroListener) {
         if (listeners.size < maxLeitores) {
@@ -28,7 +28,9 @@ class GeradorNumerico(var maxLeitores : Int, private var numeros : MutableList<I
     private fun notificarLeitores() {
         for (leitor in listeners) {
             for (numero in numeros) {
-                leitor.onReceiveNumero(numero)
+                if (numero != null) {
+                    leitor?.onReceiveNumero(numero)
+                }
             }
         }
     }
